@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Happy Birthday, My Favorite Person</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,500&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== AUDIO ===================== -->
+  <!-- Ganti src dengan file lagu kamu (mis. "Sempurna - Andra and The Backbone").
+       Letakkan file mp3 di folder yang sama dan beri nama song.mp3 -->
+  <audio id="bgm" loop preload="auto">
+    <source src="bhinneka-player_andra-the-backbone-sempurna.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- ===================== LOADING SCREEN ===================== -->
+  <section id="loading" class="screen active">
+    <div class="loading-inner">
+      <h1 class="loading-text">Loading your surprise<span class="dots"><span>.</span><span>.</span><span>.</span></span></h1>
+      <div class="loading-bar"><div class="loading-bar-fill"></div></div>
+    </div>
+  </section>
+
+  <!-- ===================== PASSWORD SCREEN ===================== -->
+  <section id="password" class="screen">
+    <div class="floating-hearts" id="pwHearts"></div>
+    <div class="wc moon">🌙</div>
+    <div class="wc cloud cloud-a">☁️</div>
+    <div class="wc cloud cloud-b">☁️</div>
+    <div class="wc star star-a">⭐</div>
+    <div class="wc star star-b">✦</div>
+    <div class="wc flower flower-a">🌸</div>
+    <div class="wc flower flower-b">🌺</div>
+
+    <div class="pw-card" id="pwCard">
+      <div class="lock-icon">🔐</div>
+      <p class="pw-from">Dari: Rayhan<br/>Untuk Alya</p>
+      <h2 class="pw-title">Enter our special date</h2>
+      <p class="pw-sub">rahasia kecil...</p>
+      <div class="pin-dots" id="pinDots">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="keypad">
+        <button class="key" data-k="1">1</button>
+        <button class="key" data-k="2">2</button>
+        <button class="key" data-k="3">3</button>
+        <button class="key" data-k="4">4</button>
+        <button class="key" data-k="5">5</button>
+        <button class="key" data-k="6">6</button>
+        <button class="key" data-k="7">7</button>
+        <button class="key" data-k="8">8</button>
+        <button class="key" data-k="9">9</button>
+        <button class="key key-ghost"></button>
+        <button class="key" data-k="0">0</button>
+        <button class="key key-del" data-k="del">⌫</button>
+      </div>
+      <p class="pw-hint">hint: tanggal lahir, bulan, dan tahun kamu 💕</p>
+    </div>
+    <div class="bloom-overlay" id="bloomOverlay"></div>
+  </section>
+
+  <!-- ===================== LETTER SCREEN ===================== -->
+  <section id="letter" class="screen">
+    <div class="envelope-wrap" id="envelopeWrap">
+      <div class="envelope" id="envelope">
+        <div class="env-letter" id="envLetter">
+          <p class="env-letter-text">Happy Birthday,<br/>my favorite person 🤍</p>
+        </div>
+        <div class="env-body"></div>
+        <div class="env-flap" id="envFlap"></div>
+        <div class="env-seal" id="envSeal">💗</div>
+      </div>
+      <p class="tap-open" id="tapOpen">Tap to open</p>
+      <div class="letter-petals" id="letterPetals"></div>
+    </div>
+  </section>
+
+  <!-- ===================== MAIN SCRAPBOOK ===================== -->
+  <main id="main" class="screen scrapbook">
+    <div class="paper-texture"></div>
+
+    <!-- music player -->
+    <div class="music-player" id="musicPlayer">
+      <button class="mp-btn" id="mpBtn">▶</button>
+      <div class="mp-info">
+        <div class="mp-title">Sempurna</div>
+        <div class="mp-artist">Andra & The Backbone</div>
+      </div>
+      <div class="mp-eq" id="mpEq"><span></span><span></span><span></span><span></span></div>
+    </div>
+
+    <!-- HERO -->
+    <header class="sb-hero reveal">
+      <div class="leopard-star">⭐</div>
+      <h1 class="hero-title">Favorite Person</h1>
+      <p class="hero-sub">a little corner of the internet, just for you</p>
+    </header>
+
+    <!-- POLAROID SCRATCH SECTION -->
+    <section class="sb-section reveal">
+      <h2 class="sec-title">Scratch our memories</h2>
+      <p class="sec-note">geser / gosok untuk membuka foto tersembunyi</p>
+      <div class="polaroid-grid" id="polaroidGrid"></div>
+    </section>
+
+    <!-- LOVE LETTER / MESSAGE -->
+    <section class="sb-section reveal">
+      <div class="love-note">
+        <div class="ln-tape ln-tape-l"></div>
+        <div class="ln-tape ln-tape-r"></div>
+        <p class="ln-from">Dari: Rayhan · Untuk: Alya</p>
+        <p class="ln-text" id="typeTarget"></p>
+        <div class="ln-glow"></div>
+      </div>
+    </section>
+
+    <!-- VIDEO PLAYER -->
+    <section class="sb-section reveal">
+      <h2 class="sec-title">Our little movie</h2>
+      <div class="video-frame">
+        <video controls playsinline class="show">
+          <source src="vidiokita.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="sb-section reveal closing">
+      <h2 class="closing-big">I Love You</h2>
+      <p class="closing-small">You are my favorite place 🤍</p>
+      <p class="closing-sign">— forever yours, Rayhan</p>
+    </section>
+
+    <div class="global-petals" id="globalPetals"></div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
