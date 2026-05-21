@@ -169,7 +169,7 @@ body{
 
 /* ============ MAIN / SCRAPBOOK ============ */
 .scrapbook {
-  background-image: url("bg.jpeg");
+  background-image: url("background.jpeg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
